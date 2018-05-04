@@ -1,0 +1,13 @@
+git checkout -b pluspusC_dev // tạo ra một branch mới
+git branch // xem các nhánh của project
+
+
+Hướng dẫn đẩy code lên git
+git status
+git add _tenFile
+git status // xem trạng thái của git
+git commit -m "Kí tên vào đây"
+git push origin _tênBranch
+tài khoản
+mật khẩu
+
