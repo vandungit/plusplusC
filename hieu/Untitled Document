@@ -1,0 +1,2 @@
+git checkout -b pluspusC_dev // tạo ra một branch mới
+git branch // xem các nhánh của project
