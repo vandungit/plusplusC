@@ -4,7 +4,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
 
 @Entity
 @Table(name="course")
@@ -27,11 +26,14 @@ public class Course implements Serializable{
 	@Column(name="video_course", nullable=false)
 	private String video;
 	
+	@Column(name="price_course", nullable=false)
+	private Long price;
+	
 	@Column(name="view_course", nullable=true)
 	private Long view;
 	
 	@Column(name="postdate_course", nullable=true)
-	private Date postdate;
+	private String postDate;
 	
 	public Long getId() {
 		return id;
@@ -68,6 +70,13 @@ public class Course implements Serializable{
 		this.video = video;
 	}
 
+	public Long getPrice() {
+		return price;
+	}
+	public void setPrice(Long price) {
+		this.price = price;
+	}
+	
 	public Long getView() {
 		return view;
 	}
@@ -75,11 +84,11 @@ public class Course implements Serializable{
 		this.view = view;
 	}
 	
-	public Date getPostDate() {
-		return postdate;
+	public String getPostDate() {
+		return postDate;
 	}
-	public void setPostDate(Date post) {
-		this.postdate = post;
+	public void setPostDate(String post) {
+		this.postDate = post;
 	}
 
 }

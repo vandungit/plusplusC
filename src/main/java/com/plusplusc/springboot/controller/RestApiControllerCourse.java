@@ -21,18 +21,19 @@ import com.plusplusc.springboot.util.CustomErrorType;
 
 @RestController
 @RequestMapping("/api")
-public class RestApiController {
+public class RestApiControllerCourse {
 
-	public static final Logger logger = LoggerFactory.getLogger(RestApiController.class);
+	public static final Logger logger = LoggerFactory.getLogger(RestApiControllerCourse.class);
 
 	@Autowired
 	CourseService courseService; //Service which will do all data retrieval/manipulation work
-	Long view = (long) 1;
+	
+	Long view = (long) 0;
 
 	// -------------------Retrieve All Courses---------------------------------------------
 
 	@RequestMapping(value = "/course/", method = RequestMethod.GET)
-	public ResponseEntity<List<Course>> listAlCourses() {
+	public ResponseEntity<List<Course>> listAllCourses() {
 		List<Course> courses = courseService.findAllCourses();
 		if (courses.isEmpty()) {
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -40,6 +41,7 @@ public class RestApiController {
 		}
 		return new ResponseEntity<List<Course>>(courses, HttpStatus.OK);
 	}
+	
 
 	// -------------------Retrieve Single Course------------------------------------------
 
@@ -52,11 +54,13 @@ public class RestApiController {
 			return new ResponseEntity(new CustomErrorType("Course with id " + id 
 					+ " not found"), HttpStatus.NOT_FOUND);
 		}
+		view = course.getView() + 1;
 		course.setView(view);
 		courseService.saveCourse(course);
 		return new ResponseEntity<Course>(course, HttpStatus.OK);
 	}
 
+		
 	// -------------------Create a Course-------------------------------------------
 
 	@RequestMapping(value = "/course/", method = RequestMethod.POST)
@@ -75,6 +79,7 @@ public class RestApiController {
 		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
 	}
 	
+		
 	// ------------------- Update a Course ------------------------------------------------
 
 	@RequestMapping(value = "/course/{id}", method = RequestMethod.PUT)
@@ -93,7 +98,7 @@ public class RestApiController {
 		currentCourse.setContent(course.getContent());
 		currentCourse.setImage(course.getImage());
 		currentCourse.setVideo(course.getVideo());
-		currentCourse.setView(course.getView());
+		currentCourse.setPrice(course.getPrice());
 		currentCourse.setPostDate(course.getPostDate());
 		
 		courseService.updateCourse(currentCourse);
@@ -116,6 +121,7 @@ public class RestApiController {
 		return new ResponseEntity<Course>(HttpStatus.NO_CONTENT);
 	}
 
+	
 	// ------------------- Delete All Courses-----------------------------
 
 	@RequestMapping(value = "/course/", method = RequestMethod.DELETE)
@@ -125,5 +131,4 @@ public class RestApiController {
 		courseService.deleteAllCourses();
 		return new ResponseEntity<Course>(HttpStatus.NO_CONTENT);
 	}
-
 }

@@ -16,5 +16,7 @@
         <script src="js/app/app.js"></script>
         <script src="js/app/CourseService.js"></script>
         <script src="js/app/CourseController.js"></script>
+        <script src="js/app/CommentService.js"></script>
+        <script src="js/app/CommentController.js"></script>
     </body>
 </html>
