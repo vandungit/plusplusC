@@ -16,33 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `course`
+-- Table structure for table `comment`
 --
 
-DROP TABLE IF EXISTS `course`;
+DROP TABLE IF EXISTS `comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `course` (
+CREATE TABLE `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title_course` varchar(200) NOT NULL,
-  `content_course` longtext NOT NULL,
-  `image_course` varchar(200) NOT NULL,
-  `video_course` varchar(200) NOT NULL,
-  `price_course` int(11) NOT NULL,
-  `view_course` int(11) DEFAULT NULL,
-  `postdate_course` varchar(45) DEFAULT NULL,
+  `name_comment` varchar(200) NOT NULL,
+  `phone_comment` int(11) NOT NULL,
+  `email_comment` varchar(200) NOT NULL,
+  `address_comment` varchar(200) NOT NULL,
+  `facebook_comment` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `course`
+-- Dumping data for table `comment`
 --
 
-LOCK TABLES `course` WRITE;
-/*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'AI','hello baby','fc07198f8c110d16b63629f75a7f7159.jpg','fc07198f8c110d16b63629f75a7f7159.jpg',1,0,'08-05-2018'),(2,'java','hello world','fc07198f8c110d16b63629f75a7f7159.jpg','fc07198f8c110d16b63629f75a7f7159.jpg',2,0,'02-05-2018'),(3,'IOT','say meow meow','fc07198f8c110d16b63629f75a7f7159.jpg','fc07198f8c110d16b63629f75a7f7159.jpg',3,0,'09-05-2018'),(4,'machine learning','say hihi haha','fc07198f8c110d16b63629f75a7f7159.jpg','fc07198f8c110d16b63629f75a7f7159.jpg',4,0,'11-05-2018');
-/*!40000 ALTER TABLE `course` ENABLE KEYS */;
+LOCK TABLES `comment` WRITE;
+/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
+INSERT INTO `comment` VALUES (1,'LeVanDung',1649987549,'dungleevan08121998@gmail.com','CoNhue1','VanDung');
+/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
